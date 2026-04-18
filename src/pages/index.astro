@@ -2,32 +2,267 @@
 ---
 
 <html lang="en">
-<head>
-  <title>Vincson Technologies</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vincson Technologies</title>
+  </head>
 
-<body style="
-margin:0;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-font-family:Arial;
-background:
-radial-gradient(circle at top left, rgba(125,55,255,.35), transparent 35%),
-linear-gradient(135deg,#05050a 0%,#120a22 100%);
-color:white;
-">
+  <body style="
+    margin:0;
+    font-family:Arial, sans-serif;
+    color:white;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(125,55,255,.18), transparent 30%),
+      radial-gradient(circle at 85% 70%, rgba(95,35,255,.14), transparent 30%),
+      linear-gradient(135deg,#05050a 0%,#0b0614 45%,#120a22 100%);
+  ">
+    <div style="
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:50px 50px;
+      pointer-events:none;
+      z-index:0;
+    "></div>
 
-<div>
-<h1>Vincson Technologies</h1>
+    <div style="
+      position:fixed;
+      top:-120px;
+      right:-120px;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(140,80,255,.22), transparent 65%);
+      filter:blur(20px);
+      pointer-events:none;
+      z-index:0;
+    "></div>
 
-<p>
-AI-Powered Cybersecurity for Small Business
-</p>
+    <div style="
+      position:relative;
+      z-index:1;
+      max-width:1100px;
+      margin:0 auto;
+      padding:32px 20px 80px;
+    ">
+      <header style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:16px;
+        padding:10px 0 30px;
+      ">
+        <div style="
+          font-size:22px;
+          font-weight:700;
+          letter-spacing:.5px;
+        ">
+          Vincson Technologies
+        </div>
 
-</div>
+        <nav style="
+          display:flex;
+          gap:18px;
+          flex-wrap:wrap;
+          font-size:14px;
+        ">
+          <a href="#services" style="color:#d8cfff; text-decoration:none;">Services</a>
+          <a href="#about" style="color:#d8cfff; text-decoration:none;">About</a>
+          <a href="#contact" style="color:#d8cfff; text-decoration:none;">Contact</a>
+        </nav>
+      </header>
 
-</body>
+      <section style="
+        min-height:70vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+      ">
+        <div style="max-width:820px;">
+          <div style="
+            display:inline-block;
+            font-size:13px;
+            text-transform:uppercase;
+            letter-spacing:2px;
+            color:#bca7ff;
+            margin-bottom:18px;
+          ">
+            AI-Powered Security
+          </div>
+
+          <h1 style="
+            font-size:clamp(42px, 7vw, 76px);
+            line-height:1.02;
+            margin:0 0 20px;
+          ">
+            Cybersecurity built for modern small business
+          </h1>
+
+          <p style="
+            font-size:20px;
+            line-height:1.7;
+            color:#ddd6f3;
+            max-width:760px;
+            margin:0 auto 34px;
+          ">
+            Vincson Technologies helps businesses reduce risk with practical security guidance,
+            stronger visibility, and modern defense against fast-moving digital threats.
+          </p>
+
+          <div style="
+            display:flex;
+            justify-content:center;
+            gap:14px;
+            flex-wrap:wrap;
+          ">
+            <a href="#contact" style="
+              background:linear-gradient(135deg,#7b2cff,#a855f7);
+              color:white;
+              text-decoration:none;
+              padding:14px 24px;
+              border-radius:12px;
+              font-weight:700;
+              display:inline-block;
+            ">
+              Request Consultation
+            </a>
+
+            <a href="#services" style="
+              color:white;
+              text-decoration:none;
+              padding:14px 24px;
+              border-radius:12px;
+              font-weight:700;
+              display:inline-block;
+              border:1px solid rgba(255,255,255,.12);
+              background:rgba(255,255,255,.04);
+            ">
+              View Services
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" style="padding:40px 0 20px;">
+        <h2 style="
+          font-size:34px;
+          margin:0 0 12px;
+          text-align:center;
+        ">
+          Core Services
+        </h2>
+
+        <p style="
+          text-align:center;
+          color:#d3cae8;
+          max-width:700px;
+          margin:0 auto 30px;
+          line-height:1.7;
+        ">
+          Practical security support designed to help organizations strengthen defenses without enterprise-level complexity.
+        </p>
+
+        <div style="
+          display:grid;
+          grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+          gap:20px;
+        ">
+          <div style="
+            background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:18px;
+            padding:24px;
+          ">
+            <h3 style="margin:0 0 12px; font-size:20px;">Threat Monitoring</h3>
+            <p style="margin:0; color:#d8d0eb; line-height:1.7;">
+              Ongoing visibility into suspicious activity, potential weaknesses, and signs your environment may be exposed.
+            </p>
+          </div>
+
+          <div style="
+            background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:18px;
+            padding:24px;
+          ">
+            <h3 style="margin:0 0 12px; font-size:20px;">Security Assessments</h3>
+            <p style="margin:0; color:#d8d0eb; line-height:1.7;">
+              Review networks, accounts, devices, and business tools to identify gaps before attackers exploit them.
+            </p>
+          </div>
+
+          <div style="
+            background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:18px;
+            padding:24px;
+          ">
+            <h3 style="margin:0 0 12px; font-size:20px;">AI-Enhanced Defense</h3>
+            <p style="margin:0; color:#d8d0eb; line-height:1.7;">
+              Use modern workflows and intelligent security processes to keep pace with increasingly automated threats.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="padding:80px 0 20px;">
+        <div style="
+          background:rgba(255,255,255,.04);
+          border:1px solid rgba(255,255,255,.08);
+          border-radius:22px;
+          padding:32px;
+        ">
+          <h2 style="font-size:34px; margin:0 0 16px;">About Vincson Technologies</h2>
+          <p style="
+            margin:0;
+            color:#d8d0eb;
+            line-height:1.8;
+            font-size:17px;
+            max-width:900px;
+          ">
+            Vincson Technologies is built around a simple idea: small businesses deserve stronger cybersecurity without being forced into overpriced, overly complicated solutions. The goal is to deliver clear security guidance, modern defensive thinking, and practical protection that helps organizations reduce risk and respond better to today’s threat landscape.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" style="padding:80px 0 10px; text-align:center;">
+        <h2 style="font-size:34px; margin:0 0 14px;">Ready to strengthen your security?</h2>
+        <p style="
+          margin:0 auto 26px;
+          max-width:680px;
+          color:#d8d0eb;
+          line-height:1.7;
+          font-size:17px;
+        ">
+          Start the conversation and find out how Vincson Technologies can help your business improve visibility, reduce exposure, and build a stronger security posture.
+        </p>
+
+        <a href="VincsonTechnologies@gmail.com" style="
+          background:linear-gradient(135deg,#7b2cff,#a855f7);
+          color:white;
+          text-decoration:none;
+          padding:15px 28px;
+          border-radius:12px;
+          font-weight:700;
+          display:inline-block;
+        ">
+          Contact Vincson Technologies
+        </a>
+      </section>
+
+      <footer style="
+        padding:50px 0 10px;
+        text-align:center;
+        color:#9f96b7;
+        font-size:14px;
+      ">
+        © 2026 Vincson Technologies. All rights reserved.
+      </footer>
+    </div>
+  </body>
 </html>
