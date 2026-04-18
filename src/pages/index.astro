@@ -17,7 +17,6 @@
         --muted-2: #d3cae8;
         --purple: #7b2cff;
         --purple-2: #b56cff;
-        --purple-soft: rgba(170, 110, 255, 0.45);
       }
 
       * {
@@ -34,7 +33,7 @@
         color: var(--text);
         background:
           radial-gradient(circle at 15% 20%, rgba(125, 55, 255, 0.14), transparent 30%),
-          radial-gradient(circle at 85% 70%, rgba(95, 35, 255, 0.1), transparent 28%),
+          radial-gradient(circle at 85% 70%, rgba(95, 35, 255, 0.10), transparent 28%),
           linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
         overflow-x: hidden;
       }
@@ -391,72 +390,126 @@
       .orbit-four { --start-rotation: 90deg; }
       .orbit-five { --start-rotation: 20deg; }
 
-      .data-line {
+      .laser {
         position: absolute;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(235, 205, 255, .96), transparent);
-        transform-origin: left center;
-        opacity: .88;
+        height: 3px;
+        border-radius: 999px;
         pointer-events: none;
-        box-shadow: 0 0 10px rgba(215, 160, 255, .25);
+        overflow: visible;
+        opacity: .95;
       }
 
-      .data-line::after {
+      .laser::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(215, 155, 255, .08) 10%,
+          rgba(235, 205, 255, .95) 48%,
+          rgba(255,255,255,1) 50%,
+          rgba(235, 205, 255, .95) 52%,
+          rgba(215, 155, 255, .08) 90%,
+          transparent 100%
+        );
+        box-shadow:
+          0 0 8px rgba(214, 150, 255, .85),
+          0 0 18px rgba(188, 110, 255, .55),
+          0 0 34px rgba(188, 110, 255, .28);
+      }
+
+      .laser::after {
         content: "";
         position: absolute;
         top: 50%;
-        right: 18%;
-        width: 8px;
-        height: 8px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         transform: translateY(-50%);
-        background: rgba(255,255,255,.96);
-        box-shadow: 0 0 16px rgba(220, 165, 255, 0.82);
-        animation: pulseDot 1.5s ease-in-out infinite;
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(232,195,255,.95) 42%, rgba(190,110,255,.22) 72%, transparent 100%);
+        box-shadow:
+          0 0 10px rgba(255,255,255,.95),
+          0 0 24px rgba(214,150,255,.7),
+          0 0 42px rgba(188,110,255,.35);
       }
 
-      @keyframes pulseDot {
-        0%, 100% { transform: translateY(-50%) scale(0.9); opacity: .75; }
-        50% { transform: translateY(-50%) scale(1.15); opacity: 1; }
-      }
-
-      .line-1 {
-        width: 305px;
+      .laser-1 {
+        width: 320px;
         top: 154px;
-        left: 94px;
-        transform: rotate(15deg);
-        animation: lineShift1 4.6s ease-in-out infinite;
+        left: 88px;
+        transform: rotate(17deg);
       }
 
-      .line-2 {
-        width: 310px;
-        top: 220px;
-        left: 84px;
+      .laser-1::after {
+        animation: beamTravel1 2.8s linear infinite;
+      }
+
+      .laser-2 {
+        width: 318px;
+        top: 218px;
+        left: 82px;
         transform: rotate(-18deg);
-        animation: lineShift2 5.2s ease-in-out infinite;
       }
 
-      .line-3 {
-        width: 250px;
-        top: 276px;
-        left: 126px;
-        transform: rotate(26deg);
-        animation: lineShift3 4.9s ease-in-out infinite;
+      .laser-2::after {
+        animation: beamTravel2 3.1s linear infinite;
       }
 
-      @keyframes lineShift1 {
-        0%, 100% { transform: rotate(15deg) translateX(0px); opacity: .72; }
-        50% { transform: rotate(15deg) translateX(8px); opacity: 1; }
+      .laser-3 {
+        width: 260px;
+        top: 278px;
+        left: 124px;
+        transform: rotate(28deg);
       }
 
-      @keyframes lineShift2 {
-        0%, 100% { transform: rotate(-18deg) translateX(0px); opacity: .72; }
-        50% { transform: rotate(-18deg) translateX(-10px); opacity: 1; }
+      .laser-3::after {
+        animation: beamTravel3 2.6s linear infinite;
       }
 
-      @keyframes lineShift3 {
-        0%, 100% { transform: rotate(26deg) translateX(0px); opacity: .68; }
-        50% { transform: rotate(26deg) translateX(10px); opacity: 1; }
+      .laser-4 {
+        width: 240px;
+        top: 118px;
+        left: 142px;
+        transform: rotate(-8deg);
+        opacity: .82;
+      }
+
+      .laser-4::after {
+        animation: beamTravel4 3.4s linear infinite;
+      }
+
+      @keyframes beamTravel1 {
+        0%   { left: -10px; opacity: 0; }
+        8%   { opacity: 1; }
+        50%  { opacity: 1; }
+        92%  { opacity: 1; }
+        100% { left: 312px; opacity: 0; }
+      }
+
+      @keyframes beamTravel2 {
+        0%   { left: 308px; opacity: 0; }
+        8%   { opacity: 1; }
+        50%  { opacity: 1; }
+        92%  { opacity: 1; }
+        100% { left: -12px; opacity: 0; }
+      }
+
+      @keyframes beamTravel3 {
+        0%   { left: -10px; opacity: 0; }
+        10%  { opacity: 1; }
+        50%  { opacity: 1; }
+        90%  { opacity: 1; }
+        100% { left: 252px; opacity: 0; }
+      }
+
+      @keyframes beamTravel4 {
+        0%   { left: 232px; opacity: 0; }
+        10%  { opacity: 1; }
+        50%  { opacity: 1; }
+        90%  { opacity: 1; }
+        100% { left: -12px; opacity: 0; }
       }
 
       .section {
@@ -655,9 +708,10 @@
             <div class="orbit orbit-four"></div>
             <div class="orbit orbit-five"></div>
 
-            <div class="data-line line-1"></div>
-            <div class="data-line line-2"></div>
-            <div class="data-line line-3"></div>
+            <div class="laser laser-1"></div>
+            <div class="laser laser-2"></div>
+            <div class="laser laser-3"></div>
+            <div class="laser laser-4"></div>
 
             <div class="globe-shell">
               <div class="globe"></div>
