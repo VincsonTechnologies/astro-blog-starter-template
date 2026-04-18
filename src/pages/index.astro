@@ -9,8 +9,8 @@
 
 <style>
 :root{
---purple:#7b2cff;
---purple2:#b56cff;
+--purple:#120d18;
+--purple2:#21142c;
 --text:#fff;
 }
 
@@ -48,15 +48,9 @@ transform:scale(1.08);
 }
 
 @keyframes drift{
-0%{
-transform:scale(1.08) translate3d(0px,0px,0px);
-}
-50%{
-transform:scale(1.12) translate3d(-18px,-10px,0px);
-}
-100%{
-transform:scale(1.08) translate3d(18px,10px,0px);
-}
+0%{transform:scale(1.08) translate3d(0,0,0);}
+50%{transform:scale(1.12) translate3d(-18px,-10px,0);}
+100%{transform:scale(1.08) translate3d(18px,10px,0);}
 }
 
 .center-pulse{
@@ -69,6 +63,7 @@ height:340px;
 border-radius:50%;
 pointer-events:none;
 z-index:-2;
+
 background:
 radial-gradient(
 circle,
@@ -77,6 +72,7 @@ rgba(28,8,52,.10) 35%,
 rgba(16,5,28,.05) 55%,
 transparent 72%
 );
+
 filter:blur(20px);
 animation:pulseGlow 4.8s ease-in-out infinite;
 }
@@ -99,6 +95,7 @@ right:-140px;
 width:420px;
 height:420px;
 border-radius:50%;
+
 background:
 radial-gradient(
 circle,
@@ -106,6 +103,7 @@ rgba(35,12,58,.22),
 rgba(18,6,32,.10),
 transparent 70%
 );
+
 filter:blur(42px);
 z-index:-1;
 pointer-events:none;
@@ -147,15 +145,17 @@ box-shadow .25s ease;
 
 .glow-link:hover{
 transform:translateY(-2px);
+
 box-shadow:
-0 0 18px rgba(160,95,255,.45),
-0 0 34px rgba(160,95,255,.20);
+0 0 18px rgba(70,35,100,.45),
+0 0 34px rgba(70,35,100,.20);
 }
 
 .glow-link:active{
 transform:scale(.98);
+
 box-shadow:
-0 0 28px rgba(190,130,255,.75);
+0 0 28px rgba(90,50,125,.60);
 }
 
 .nav-link{
@@ -164,8 +164,12 @@ color:white;
 padding:12px 18px;
 border-radius:12px;
 font-weight:700;
+
 border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.05);
+
+background:
+rgba(255,255,255,.05);
+
 backdrop-filter:blur(8px);
 }
 
@@ -220,7 +224,12 @@ font-weight:700;
 }
 
 .btn-primary{
-background:linear-gradient(135deg,var(--purple),var(--purple2));
+background:
+linear-gradient(
+135deg,
+var(--purple),
+var(--purple2)
+);
 color:white;
 }
 
@@ -251,12 +260,6 @@ color:#d9d3ef;
 .grid3{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.grid4{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 }
 
@@ -370,181 +373,25 @@ View Services
 </section>
 
 <section id="services" class="section">
-
-<h2 class="section-title">
-Services
-</h2>
-
-<p class="section-text">
-Security support designed to help small businesses improve visibility, reduce exposure, and strengthen resilience against modern cyber threats.
-</p>
-
+<h2 class="section-title">Services</h2>
 <div class="grid3">
 
 <div class="card">
 <h3>Threat Monitoring & Visibility</h3>
-<p>
-Review signs of suspicious activity, improve awareness of potential exposure, and help identify indicators that may warrant further investigation.
-</p>
+<p>Review signs of suspicious activity and help identify indicators that may warrant further investigation.</p>
 </div>
 
 <div class="card">
 <h3>Security Assessments</h3>
-<p>
-Evaluate networks, user accounts, connected systems, remote access, and cloud services to identify weaknesses and security gaps.
-</p>
+<p>Evaluate networks, users, connected systems, remote access, and cloud services to identify weaknesses.</p>
 </div>
 
 <div class="card">
 <h3>AI-Enhanced Defensive Support</h3>
-<p>
-Use modern workflows and AI-assisted analysis to help keep pace with increasingly automated and fast-moving threats.
-</p>
-</div>
-
-<div class="card">
-<h3>Attack Surface Review</h3>
-<p>
-Assess publicly exposed assets, internet-facing risks, and potential weak points that attackers may target.
-</p>
-</div>
-
-<div class="card">
-<h3>Security Hardening Guidance</h3>
-<p>
-Support stronger configurations for accounts, endpoints, access controls, and core business systems.
-</p>
-</div>
-
-<div class="card">
-<h3>Security Awareness Support</h3>
-<p>
-Help improve readiness against phishing, social engineering, and common attack tactics targeting small businesses.
-</p>
+<p>Use modern workflows and AI-assisted analysis to help keep pace with automated threats.</p>
 </div>
 
 </div>
-
-</section>
-
-<section id="who" class="section">
-
-<h2 class="section-title">
-Who We Help
-</h2>
-
-<p class="section-text">
-Focused on organizations that need stronger security without enterprise-level complexity.
-</p>
-
-<div class="grid3">
-
-<div class="card">
-<h3>Small Businesses</h3>
-<p>
-Businesses that depend on email, cloud platforms, devices, and online operations but lack dedicated internal security resources.
-</p>
-</div>
-
-<div class="card">
-<h3>Property Management</h3>
-<p>
-Organizations handling tenant data, payment systems, portals, vendor access, and sensitive operational records.
-</p>
-</div>
-
-<div class="card">
-<h3>Professional Offices</h3>
-<p>
-Firms where client confidentiality, account security, and secure communications matter.
-</p>
-</div>
-
-<div class="card">
-<h3>Local Service Businesses</h3>
-<p>
-Businesses using POS systems, connected devices, online accounts, and cloud applications daily.
-</p>
-</div>
-
-<div class="card">
-<h3>Growing Organizations</h3>
-<p>
-Teams scaling operations that need stronger security processes and better visibility as they grow.
-</p>
-</div>
-
-<div class="card">
-<h3>Businesses Concerned About Cyber Risk</h3>
-<p>
-Organizations seeking practical security improvements before problems occur, not after damage has already been done.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="why" class="section">
-
-<div class="panel">
-
-<h2 class="section-title">
-Why Vincson Technologies
-</h2>
-
-<p class="section-text">
-A security-focused approach built around practical protection, modern defensive thinking, and the realities small businesses actually face.
-</p>
-
-<div class="grid3">
-
-<div class="card">
-<h3>Practical Security</h3>
-<p>
-Focus on meaningful risk reduction, not unnecessary complexity, bloated recommendations, or confusing enterprise jargon.
-</p>
-</div>
-
-<div class="card">
-<h3>Modern Defensive Thinking</h3>
-<p>
-Built around today’s threat landscape, including automation, identity attacks, cloud exposure, and AI-driven attacker behavior.
-</p>
-</div>
-
-<div class="card">
-<h3>Built for Small Business Reality</h3>
-<p>
-Designed for organizations that need stronger security without enterprise-level overhead, staffing, or pricing.
-</p>
-</div>
-
-<div class="card">
-<h3>Security Guidance with Context</h3>
-<p>
-Support that considers how a business actually operates, so recommendations are more realistic, actionable, and relevant.
-</p>
-</div>
-
-<div class="card">
-<h3>Focused on Risk Reduction</h3>
-<p>
-The priority is reducing exposure, improving visibility, and helping organizations strengthen resilience over time.
-</p>
-</div>
-
-<div class="card">
-<h3>Built Around Evolving Threats</h3>
-<p>
-Approaches shaped by how attackers operate now, not outdated assumptions about what modern cyber risk looks like.
-</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <section id="alerts" class="section">
@@ -554,10 +401,6 @@ Approaches shaped by how attackers operate now, not outdated assumptions about w
 <h2 class="section-title">
 Threat Alerts & Cybersecurity Tips
 </h2>
-
-<p class="section-text">
-Follow Vincson Technologies on Instagram for threat alerts, cybersecurity tips, and security awareness content focused on modern digital risks.
-</p>
 
 <a class="glow-link btn-primary"
 href="https://www.instagram.com/vincsontechnologies/"
@@ -569,16 +412,11 @@ Follow on Instagram
 
 </section>
 
-<section id="contact"
-class="section center">
+<section id="contact" class="section center">
 
 <h2 class="section-title">
 Ready to strengthen your security?
 </h2>
-
-<p class="section-text">
-Start the conversation and find out how Vincson Technologies can help your business improve visibility, reduce exposure, and build a stronger security posture.
-</p>
 
 <a class="glow-link btn-primary"
 href="mailto:VincsonTechnologies@gmail.com">
