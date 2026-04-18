@@ -9,8 +9,8 @@
 
 <style>
 :root{
---purple:#2b1740;
---purple2:#462263;
+--purple:#120d18;
+--purple2:#21142c;
 --text:#fff;
 }
 
@@ -147,15 +147,15 @@ box-shadow .25s ease;
 transform:translateY(-2px);
 
 box-shadow:
-0 0 18px rgba(90,50,125,.45),
-0 0 34px rgba(90,50,125,.20);
+0 0 18px rgba(70,35,100,.45),
+0 0 34px rgba(70,35,100,.20);
 }
 
 .glow-link:active{
 transform:scale(.98);
 
 box-shadow:
-0 0 28px rgba(120,70,160,.55);
+0 0 28px rgba(90,50,125,.60);
 }
 
 .nav-link{
@@ -164,8 +164,12 @@ color:white;
 padding:12px 18px;
 border-radius:12px;
 font-weight:700;
+
 border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.05);
+
+background:
+rgba(255,255,255,.05);
+
 backdrop-filter:blur(8px);
 }
 
@@ -223,16 +227,9 @@ font-weight:700;
 background:
 linear-gradient(
 135deg,
-#2b1740 0%,
-#3a1d54 45%,
-#462263 100%
+var(--purple),
+var(--purple2)
 );
-
-border:1px solid rgba(130,85,180,.25);
-
-box-shadow:
-inset 0 1px 0 rgba(255,255,255,.04);
-
 color:white;
 }
 
@@ -252,6 +249,14 @@ text-align:center;
 margin-bottom:14px;
 }
 
+.section-text{
+text-align:center;
+max-width:760px;
+margin:0 auto 30px;
+line-height:1.7;
+color:#d9d3ef;
+}
+
 .grid3{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -268,11 +273,13 @@ backdrop-filter:blur(10px);
 
 .card h3{
 margin-top:0;
+margin-bottom:12px;
 }
 
 .card p{
 line-height:1.7;
 color:#ddd7f1;
+margin:0;
 }
 
 .panel{
@@ -367,22 +374,21 @@ View Services
 
 <section id="services" class="section">
 <h2 class="section-title">Services</h2>
-
 <div class="grid3">
 
 <div class="card">
-<h3>Threat Monitoring</h3>
-<p>Visibility into suspicious activity and potential exposure.</p>
+<h3>Threat Monitoring & Visibility</h3>
+<p>Review signs of suspicious activity and help identify indicators that may warrant further investigation.</p>
 </div>
 
 <div class="card">
 <h3>Security Assessments</h3>
-<p>Identify weaknesses before attackers exploit them.</p>
+<p>Evaluate networks, users, connected systems, remote access, and cloud services to identify weaknesses.</p>
 </div>
 
 <div class="card">
-<h3>AI-Enhanced Defense</h3>
-<p>Modern workflows to keep pace with automated threats.</p>
+<h3>AI-Enhanced Defensive Support</h3>
+<p>Use modern workflows and AI-assisted analysis to help keep pace with automated threats.</p>
 </div>
 
 </div>
