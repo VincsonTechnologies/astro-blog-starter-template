@@ -4,19 +4,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Vincson Technologies</title>
 
 <style>
+
 :root{
---bg-1:#040407;
---bg-2:#090512;
---bg-3:#12091f;
---text:#ffffff;
---muted:#d8d0eb;
---muted-2:#d3cae8;
 --purple:#7b2cff;
---purple-2:#b56cff;
+--purple2:#b56cff;
+--text:#fff;
 }
 
 *{
@@ -30,84 +26,141 @@ scroll-behavior:smooth;
 body{
 margin:0;
 font-family:Arial,sans-serif;
-color:var(--text);
-background:
-radial-gradient(circle at 15% 20%, rgba(125,55,255,.14), transparent 30%),
-radial-gradient(circle at 85% 70%, rgba(95,35,255,.10), transparent 28%),
-linear-gradient(135deg,var(--bg-1) 0%,var(--bg-2) 45%,var(--bg-3) 100%);
+color:white;
 overflow-x:hidden;
+background:#05050a;
 }
+
+/* PARALLAX BACKGROUND */
+
+.parallax-bg{
+position:fixed;
+inset:0;
+z-index:-2;
+
+background:
+linear-gradient(
+rgba(8,4,20,.76),
+rgba(18,8,38,.82)
+),
+url('/cloud-bg.jpg');
+
+background-size:cover;
+background-position:center center;
+background-repeat:no-repeat;
+
+animation:drift 28s ease-in-out infinite alternate;
+transform:scale(1.08);
+}
+
+@keyframes drift{
+
+0%{
+transform:
+scale(1.08)
+translate3d(0px,0px,0px);
+}
+
+50%{
+transform:
+scale(1.12)
+translate3d(-20px,-12px,0px);
+}
+
+100%{
+transform:
+scale(1.08)
+translate3d(20px,10px,0px);
+}
+
+}
+
+/* extra purple atmosphere */
 
 .page-glow{
 position:fixed;
 top:-140px;
 right:-140px;
-width:440px;
-height:440px;
+width:420px;
+height:420px;
 border-radius:50%;
-background:radial-gradient(circle,rgba(165,100,255,.16),transparent 68%);
-filter:blur(22px);
-pointer-events:none;
-z-index:0;
+
+background:
+radial-gradient(
+circle,
+rgba(140,70,255,.18),
+transparent 70%
+);
+
+filter:blur(30px);
+z-index:-1;
 }
+
+/* layout */
 
 .container{
-position:relative;
-z-index:1;
 max-width:1180px;
-margin:0 auto;
-padding:32px 20px 80px;
+margin:auto;
+padding:32px 20px 90px;
 }
 
-.site-header{
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
 flex-wrap:wrap;
 gap:18px;
-padding:8px 0 30px;
+padding-bottom:28px;
 }
 
 .brand{
 font-size:22px;
 font-weight:700;
-letter-spacing:.4px;
 }
 
-.nav{
+nav{
 display:flex;
 gap:12px;
 flex-wrap:wrap;
-font-size:14px;
 }
 
 .glow-link{
-transition:transform .25s ease, box-shadow .25s ease;
+transition:
+transform .25s ease,
+box-shadow .25s ease;
 }
 
 .glow-link:hover{
+transform:translateY(-2px);
+
 box-shadow:
 0 0 18px rgba(160,95,255,.45),
-0 0 36px rgba(160,95,255,.22);
-transform:translateY(-2px);
+0 0 34px rgba(160,95,255,.20);
 }
 
 .glow-link:active{
-box-shadow:
-0 0 28px rgba(190,130,255,.72);
 transform:scale(.98);
+
+box-shadow:
+0 0 28px rgba(190,130,255,.75);
 }
 
 .nav-link{
-color:white;
 text-decoration:none;
+color:white;
 padding:12px 18px;
 border-radius:12px;
 font-weight:700;
-display:inline-block;
+
 border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.04);
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(8px);
 }
+
+/* hero */
 
 .hero{
 min-height:78vh;
@@ -115,7 +168,6 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px 0 30px;
 }
 
 .hero-copy{
@@ -123,54 +175,63 @@ max-width:860px;
 }
 
 .eyebrow{
-display:inline-block;
-font-size:13px;
-text-transform:uppercase;
 letter-spacing:2px;
-color:#ceb5ff;
-margin-bottom:18px;
+text-transform:uppercase;
+font-size:13px;
+color:#d4bfff;
+margin-bottom:20px;
 }
 
 .hero-title{
-font-size:clamp(38px,6vw,68px);
+font-size:clamp(42px,6vw,68px);
 line-height:1.05;
-margin:0 0 20px;
+margin:0 0 22px;
 }
 
 .hero-text{
 font-size:20px;
 line-height:1.7;
-color:#ddd6f3;
 max-width:760px;
 margin:0 auto 34px;
+color:#e0daf6;
 }
 
 .hero-buttons{
 display:flex;
-gap:14px;
-flex-wrap:wrap;
 justify-content:center;
+flex-wrap:wrap;
+gap:14px;
 }
 
 .btn-primary,
 .btn-secondary{
-text-decoration:none;
+display:inline-block;
 padding:14px 24px;
 border-radius:12px;
+text-decoration:none;
 font-weight:700;
-display:inline-block;
 }
 
 .btn-primary{
-background:linear-gradient(135deg,var(--purple),var(--purple-2));
+background:
+linear-gradient(
+135deg,
+var(--purple),
+var(--purple2)
+);
 color:white;
 }
 
 .btn-secondary{
+border:1px solid rgba(255,255,255,.14);
+
+background:
+rgba(255,255,255,.05);
+
 color:white;
-border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.04);
 }
+
+/* sections */
 
 .section{
 padding:80px 0 20px;
@@ -178,91 +239,82 @@ padding:80px 0 20px;
 
 .section-title{
 font-size:34px;
-margin:0 0 12px;
 text-align:center;
+margin-bottom:14px;
 }
 
 .section-text{
 text-align:center;
-color:var(--muted-2);
 max-width:760px;
 margin:0 auto 30px;
 line-height:1.7;
+color:#d9d3ef;
 }
 
-.grid-3,
-.grid-4{
+.grid3{
 display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
 }
 
-.grid-3{
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-}
-
-.grid-4{
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-}
-
-.card,
-.card-soft{
-border-radius:18px;
-padding:24px;
+.grid4{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
+padding:24px;
+border-radius:18px;
+
+background:
+rgba(255,255,255,.055);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
 }
 
-.card-soft{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
+.card h3{
+margin-top:0;
 }
 
-.card h3,
-.card-soft h3{
-margin:0 0 12px;
-font-size:20px;
-}
-
-.card p,
-.card-soft p{
-margin:0;
-color:var(--muted);
+.card p{
 line-height:1.7;
+color:#ddd7f1;
 }
 
 .panel{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:22px;
 padding:34px;
+border-radius:22px;
+
+background:
+rgba(255,255,255,.045);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
 }
 
 .center{
 text-align:center;
 }
 
-.footer{
-padding:50px 0 10px;
+footer{
+padding:60px 0 10px;
 text-align:center;
-color:#9f96b7;
-font-size:14px;
+color:#aaa1c5;
 }
 
-@media(max-width:980px){
-.site-header{
-justify-content:center;
-}
-}
+/* mobile */
 
 @media(max-width:640px){
-.container{
-padding:24px 16px 70px;
-}
 
-.nav{
+nav{
 justify-content:center;
 }
 
@@ -274,32 +326,52 @@ font-size:42px;
 font-size:18px;
 }
 
-.section-title{
-font-size:30px;
 }
-}
+
 </style>
 </head>
 
 <body>
 
+<div class="parallax-bg"></div>
 <div class="page-glow"></div>
 
 <div class="container">
 
-<header class="site-header">
-<div class="brand">Vincson Technologies</div>
+<header>
 
-<nav class="nav">
-<a class="glow-link nav-link" href="#services">Services</a>
-<a class="glow-link nav-link" href="#who-we-help">Who We Help</a>
-<a class="glow-link nav-link" href="#why-vincson-technologies">Why Vincson Technologies</a>
-<a class="glow-link nav-link" href="#alerts">Alerts</a>
-<a class="glow-link nav-link" href="#contact">Contact</a>
+<div class="brand">
+Vincson Technologies
+</div>
+
+<nav>
+
+<a class="glow-link nav-link" href="#services">
+Services
+</a>
+
+<a class="glow-link nav-link" href="#who">
+Who We Help
+</a>
+
+<a class="glow-link nav-link" href="#why">
+Why Vincson Technologies
+</a>
+
+<a class="glow-link nav-link" href="#alerts">
+Alerts
+</a>
+
+<a class="glow-link nav-link" href="#contact">
+Contact
+</a>
+
 </nav>
+
 </header>
 
 <section class="hero">
+
 <div class="hero-copy">
 
 <div class="eyebrow">
@@ -311,107 +383,119 @@ Cybersecurity for Small Businesses
 </h1>
 
 <p class="hero-text">
-Vincson Technologies helps businesses reduce risk with practical security guidance, stronger threat visibility, and modern defense support built for today's evolving cyber threats.
+Vincson Technologies helps businesses reduce risk with practical security guidance, stronger threat visibility, and modern defense support built for today’s evolving cyber threats.
 </p>
 
 <div class="hero-buttons">
-<a class="glow-link btn-primary" href="#contact">
+
+<a class="glow-link btn-primary"
+href="#contact">
 Request Consultation
 </a>
 
-<a class="glow-link btn-secondary" href="#services">
+<a class="glow-link btn-secondary"
+href="#services">
 View Services
 </a>
+
 </div>
 
 </div>
+
 </section>
 
 <section id="services" class="section">
-<h2 class="section-title">Services</h2>
 
-<p class="section-text">
-Focused cybersecurity support designed to help organizations strengthen defenses without enterprise-level complexity.
-</p>
+<h2 class="section-title">
+Services
+</h2>
 
-<div class="grid-3">
+<div class="grid3">
 
 <div class="card">
 <h3>Threat Monitoring</h3>
-<p>Ongoing visibility into suspicious activity, potential weaknesses, and signs your environment may be exposed.</p>
+<p>Visibility into suspicious activity and potential exposure.</p>
 </div>
 
 <div class="card">
 <h3>Security Assessments</h3>
-<p>Review networks, devices, accounts, and business tools to identify gaps before attackers exploit them.</p>
+<p>Identify weaknesses before attackers exploit them.</p>
 </div>
 
 <div class="card">
 <h3>AI-Enhanced Defense</h3>
-<p>Use modern workflows and intelligent security processes to keep pace with increasingly automated threats.</p>
+<p>Modern workflows to keep pace with automated threats.</p>
 </div>
 
 </div>
+
 </section>
 
-<section id="who-we-help" class="section">
-<h2 class="section-title">Who We Help</h2>
+<section id="who" class="section">
 
-<div class="grid-4">
+<h2 class="section-title">
+Who We Help
+</h2>
 
-<div class="card-soft center">
+<div class="grid4">
+
+<div class="card">
 <h3>Small Businesses</h3>
-<p>Businesses that need practical protection without enterprise overhead.</p>
+<p>Practical protection without enterprise overhead.</p>
 </div>
 
-<div class="card-soft center">
+<div class="card">
 <h3>Property Management</h3>
-<p>Firms managing sensitive tenant, payment, and operational data.</p>
+<p>Protection for sensitive tenant and operational data.</p>
 </div>
 
-<div class="card-soft center">
+<div class="card">
 <h3>Professional Offices</h3>
-<p>Teams that depend on email, cloud platforms, and client confidentiality.</p>
+<p>Support for email, cloud platforms and client data.</p>
 </div>
 
-<div class="card-soft center">
+<div class="card">
 <h3>Local Service Businesses</h3>
-<p>Organizations using connected devices, online accounts, and payment systems every day.</p>
+<p>Security for connected systems and payment tools.</p>
 </div>
 
 </div>
+
 </section>
 
-<section id="why-vincson-technologies" class="section">
+<section id="why" class="section">
+
 <div class="panel">
 
 <h2 class="section-title">
 Why Vincson Technologies
 </h2>
 
-<div class="grid-3">
+<div class="grid3">
 
-<div class="card-soft">
+<div class="card">
 <h3>Practical Security</h3>
-<p>Focus on real protection and real risk reduction instead of unnecessary complexity.</p>
+<p>Real protection focused on reducing risk.</p>
 </div>
 
-<div class="card-soft">
+<div class="card">
 <h3>Modern Defensive Thinking</h3>
-<p>Built around current threats, modern business tools, and AI-enhanced defensive workflows.</p>
+<p>Built around current threats and AI-enhanced defense.</p>
 </div>
 
-<div class="card-soft">
+<div class="card">
 <h3>Built for Small Business Reality</h3>
-<p>Designed for organizations that need stronger security without enterprise pricing or confusion.</p>
+<p>Security designed without enterprise complexity.</p>
 </div>
 
 </div>
 
 </div>
+
 </section>
 
 <section id="alerts" class="section">
+
 <div class="panel center">
 
 <h2 class="section-title">
@@ -419,7 +503,7 @@ Threat Alerts & Cybersecurity Tips
 </h2>
 
 <p class="section-text">
-Follow Vincson Technologies on Instagram for threat alerts and cybersecurity tips.
+Follow Vincson Technologies on Instagram.
 </p>
 
 <a class="glow-link btn-primary"
@@ -429,9 +513,11 @@ Follow on Instagram
 </a>
 
 </div>
+
 </section>
 
-<section id="contact" class="section center">
+<section id="contact"
+class="section center">
 
 <h2 class="section-title">
 Ready to strengthen your security?
@@ -444,8 +530,8 @@ Contact Vincson Technologies
 
 </section>
 
-<footer class="footer">
-© 2026 Vincson Technologies. All rights reserved.
+<footer>
+© 2026 Vincson Technologies
 </footer>
 
 </div>
