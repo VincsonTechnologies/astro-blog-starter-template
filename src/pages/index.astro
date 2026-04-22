@@ -10,17 +10,11 @@
 <style>
 :root{
 --bg:#05050a;
---bg2:#0d0816;
---panel:#0f0b18;
---panel2:#130f1f;
---border:rgba(255,255,255,.08);
 --text:#ffffff;
 --muted:#d8d0eb;
 --muted2:#b8afcf;
---purple:#6f2bff;
---purple2:#b05cff;
---purple-dark:#241136;
---purple-dark2:#3a1d54;
+--purple:#2b1740;
+--purple2:#462263;
 }
 
 *{
@@ -44,7 +38,7 @@ position:fixed;
 inset:0;
 z-index:-3;
 background:
-linear-gradient(rgba(18,8,38,.78),rgba(10,5,20,.86)),
+linear-gradient(rgba(18,8,38,.72),rgba(10,5,20,.82)),
 url('/cloud-bg.jpg');
 background-size:cover;
 background-position:center;
@@ -207,7 +201,7 @@ font-weight:700;
 }
 
 .btn-primary{
-background:linear-gradient(135deg,var(--purple-dark),var(--purple-dark2));
+background:linear-gradient(135deg,var(--purple),var(--purple2));
 border:1px solid rgba(130,85,180,.25);
 box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
 color:white;
@@ -252,7 +246,19 @@ box-shadow:
 0 20px 60px rgba(0,0,0,.34),
 0 0 40px rgba(92,34,152,.10);
 backdrop-filter:blur(14px);
-transform:rotate(-6deg);
+transform:none;
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+border-color .35s ease;
+}
+
+.visual-card:hover{
+transform:translateY(-8px) scale(1.01);
+border-color:rgba(180,120,255,.22);
+box-shadow:
+0 28px 70px rgba(0,0,0,.42),
+0 0 50px rgba(110,55,190,.18);
 }
 
 .visual-top{
@@ -312,52 +318,94 @@ font-size:14px;
 
 .visual-art{
 border-radius:22px;
-background:
-radial-gradient(circle at 55% 45%, rgba(152,84,255,.30), transparent 30%),
-linear-gradient(180deg, rgba(20,13,31,.96), rgba(12,9,20,.92));
+background:linear-gradient(180deg, rgba(20,13,31,.96), rgba(12,9,20,.92));
 border:1px solid rgba(255,255,255,.06);
 min-height:220px;
 position:relative;
 overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-.visual-orb{
+.lock-art{
+padding:0;
+}
+
+.lock-image{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+filter:
+brightness(1)
+contrast(1.02)
+saturate(1.02);
+}
+
+/* subtle glow coming off the lock image */
+.lock-art::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 58% 48%, rgba(120,210,255,.18), transparent 20%),
+radial-gradient(circle at 58% 48%, rgba(190,110,255,.14), transparent 32%);
+pointer-events:none;
+mix-blend-mode:screen;
+animation:lockGlow 4.2s ease-in-out infinite;
+}
+
+@keyframes lockGlow{
+0%,100%{opacity:.55; transform:scale(1);}
+50%{opacity:.9; transform:scale(1.02);}
+}
+
+/* pulsing light lines over the card */
+.lock-art::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(100deg, transparent 0%, transparent 30%, rgba(145,220,255,.0) 42%, rgba(145,220,255,.65) 50%, rgba(190,120,255,.45) 53%, rgba(145,220,255,.0) 60%, transparent 72%, transparent 100%);
+mix-blend-mode:screen;
+opacity:.55;
+animation:scanBeam 3.8s linear infinite;
+pointer-events:none;
+}
+
+@keyframes scanBeam{
+0%{transform:translateX(-120%) skewX(-18deg);}
+100%{transform:translateX(120%) skewX(-18deg);}
+}
+
+/* extra radial pulse lines from lock center */
+.lock-lines{
+position:absolute;
+inset:0;
+pointer-events:none;
+}
+
+.lock-line{
 position:absolute;
 left:50%;
-top:52%;
-transform:translate(-50%,-50%);
-width:120px;
-height:120px;
-border-radius:50%;
-background:radial-gradient(circle, rgba(173,118,255,.9), rgba(117,53,202,.35) 50%, transparent 72%);
-filter:blur(1px);
-box-shadow:
-0 0 30px rgba(140,70,255,.5),
-0 0 80px rgba(100,40,170,.18);
-animation:orbPulse 4s ease-in-out infinite;
+top:54%;
+height:2px;
+transform-origin:left center;
+background:linear-gradient(90deg, rgba(145,220,255,.95), rgba(190,120,255,.78), transparent);
+box-shadow:0 0 12px rgba(145,220,255,.35);
+opacity:.75;
+animation:pulseLine 2.8s ease-in-out infinite;
 }
 
-@keyframes orbPulse{
-0%,100%{transform:translate(-50%,-50%) scale(.95);}
-50%{transform:translate(-50%,-50%) scale(1.08);}
-}
+.lock-line:nth-child(1){width:120px; transform:rotate(-22deg); animation-delay:.0s;}
+.lock-line:nth-child(2){width:130px; transform:rotate(-8deg); animation-delay:.3s;}
+.lock-line:nth-child(3){width:128px; transform:rotate(8deg); animation-delay:.6s;}
+.lock-line:nth-child(4){width:116px; transform:rotate(22deg); animation-delay:.9s;}
 
-.visual-ring{
-position:absolute;
-left:50%;
-top:52%;
-transform:translate(-50%,-50%);
-border:1px solid rgba(211,170,255,.32);
-border-radius:50%;
-}
-
-.r1{width:170px;height:170px;animation:spin 12s linear infinite;}
-.r2{width:220px;height:90px;animation:spin 10s linear infinite reverse;}
-.r3{width:120px;height:220px;animation:spin 9s linear infinite;}
-
-@keyframes spin{
-from{transform:translate(-50%,-50%) rotate(0deg);}
-to{transform:translate(-50%,-50%) rotate(360deg);}
+@keyframes pulseLine{
+0%,100%{opacity:.28; transform-origin:left center;}
+50%{opacity:.9;}
 }
 
 .visual-bottom{
@@ -496,9 +544,6 @@ margin-right:auto;
 .proof-strip{
 justify-content:center;
 }
-.visual-card{
-transform:none;
-}
 }
 
 @media(max-width:640px){
@@ -578,11 +623,14 @@ Vincson Technologies helps businesses reduce risk with practical security guidan
 </ul>
 </div>
 
-<div class="visual-art">
-<div class="visual-orb"></div>
-<div class="visual-ring r1"></div>
-<div class="visual-ring r2"></div>
-<div class="visual-ring r3"></div>
+<div class="visual-art lock-art">
+<img src="/lock-visual.jpg" alt="Cybersecurity lock visual" class="lock-image" />
+<div class="lock-lines">
+  <div class="lock-line"></div>
+  <div class="lock-line"></div>
+  <div class="lock-line"></div>
+  <div class="lock-line"></div>
+</div>
 </div>
 </div>
 
